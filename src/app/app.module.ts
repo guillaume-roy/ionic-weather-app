@@ -4,27 +4,33 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { CumulonimbusApp } from './app.component';
+import { CitiesProvider } from '../providers/cities/cities';
+import { WeatherProvider } from '../providers/weather/weather';
+import { CitiesPage } from '../pages/cities/cities';
+import { CityPage } from '../pages/city/city';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage
+    CumulonimbusApp,
+    CitiesPage,
+    CityPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(CumulonimbusApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    CumulonimbusApp,
+    CitiesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CitiesProvider,
+    WeatherProvider
   ]
 })
 export class AppModule {}
