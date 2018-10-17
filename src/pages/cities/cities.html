@@ -24,7 +24,7 @@
     <ion-item-divider color="light">Ma Position</ion-item-divider>
     <button ion-item *ngIf="localWeather" (click)="goToCityDetail(localWeather)">
       <ion-thumbnail item-start>
-        <img src="/assets/imgs/{{localWeather.weather.weatherType}}.svg">
+        <img src="assets/imgs/{{localWeather.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{localWeather.city.name}} - {{localWeather.city.country}}</h2>
       <p text-capitalize>{{localWeather.weather.weatherDescription}} - Humidité : {{localWeather.weather.humidity}} % - Vent :
@@ -35,7 +35,7 @@
     <ion-item-divider color="light">Favoris</ion-item-divider>
     <button ion-item *ngFor="let w of weathers" (click)="goToCityDetail(w)">
       <ion-thumbnail item-start>
-        <img src="/assets/imgs/{{w.weather.weatherType}}.svg">
+        <img src="assets/imgs/{{w.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{w.city.name}} - {{w.city.country}}</h2>
       <p text-capitalize>{{w.weather.weatherDescription}} - Humidité : {{w.weather.humidity}} % - Vent : {{w.weather.windSpeed.toFixed(0)}}

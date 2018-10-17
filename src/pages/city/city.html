@@ -27,13 +27,13 @@
         {{cityWeather?.weather?.temperature.toFixed(0)}}°C
       </h1>
     </ion-item>
-    <img class="weather-icon" text-center src="/assets/imgs/{{cityWeather?.weather?.weatherType}}.svg" />
+    <img class="weather-icon" text-center src="assets/imgs/{{cityWeather?.weather?.weatherType}}.svg" />
   </ion-card>
   <ion-list>
     <ion-item-divider color="light">A Venir</ion-item-divider>
     <ion-item *ngFor="let w of forecastWeathers">
       <ion-thumbnail item-start>
-        <img src="/assets/imgs/{{w.weatherType}}.svg">
+        <img src="assets/imgs/{{w.weatherType}}.svg">
       </ion-thumbnail>
       <h2 text-capitalize>{{w.date | dfnsFormat : 'DD/MM/YYYY'}}</h2>
       <p text-capitalize>{{w.weatherDescription}} - Humidité : {{w.humidity}} % - Vent :
