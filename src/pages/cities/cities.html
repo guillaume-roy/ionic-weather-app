@@ -27,19 +27,18 @@
         <img src="assets/imgs/{{localWeather.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{localWeather.city.name}} - {{localWeather.city.country}}</h2>
-      <p text-capitalize>{{localWeather.weather.weatherDescription}} - Humidité : {{localWeather.weather.humidity}} % - Vent :
-        {{localWeather.weather.windSpeed.toFixed(0)}}
-        km/h</p>
+      <p text-capitalize>{{localWeather.weather.weatherDescription}}</p>
+      <p text-capitalize>Humidité : {{localWeather.weather.humidity}} % - Vent : {{localWeather.weather.windSpeed.toFixed(0)}} km/h</p>
       <h1 item-end>{{localWeather.weather.temperature.toFixed(0)}}°C</h1>
     </button>
-    <ion-item-divider color="light">Favoris</ion-item-divider>
+    <ion-item-divider color="light" *ngIf="weathers && weathers.length > 0">Favoris</ion-item-divider>
     <button ion-item *ngFor="let w of weathers" (click)="goToCityDetail(w)">
       <ion-thumbnail item-start>
         <img src="assets/imgs/{{w.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{w.city.name}} - {{w.city.country}}</h2>
-      <p text-capitalize>{{w.weather.weatherDescription}} - Humidité : {{w.weather.humidity}} % - Vent : {{w.weather.windSpeed.toFixed(0)}}
-        km/h</p>
+      <p text-capitalize>{{w.weather.weatherDescription}}</p>
+      <p text-capitalize>Humidité : {{w.weather.humidity}} % - Vent : {{w.weather.windSpeed.toFixed(0)}} km/h</p>
       <h1 item-end>{{w.weather.temperature.toFixed(0)}}°C</h1>
     </button>
   </ion-list>

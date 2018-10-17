@@ -19,10 +19,8 @@
 <ion-content padding>
   <ion-card>
     <ion-item text-center text-capitalize>
-      <h2>{{cityWeather?.city?.name}} - {{cityWeather?.city?.country}}</h2>
-      <p>{{cityWeather?.weather?.weatherDescription}} - Humidité : {{cityWeather?.weather?.humidity}} % - Vent :
-        {{cityWeather?.weather?.windSpeed.toFixed(0)}}
-        km/h</p>
+      <h1>{{cityWeather?.weather?.weatherDescription}}</h1>
+      <p>Humidité : {{cityWeather?.weather?.humidity}} % - Vent : {{cityWeather?.weather?.windSpeed.toFixed(0)}} km/h</p>
       <h1 item-end>
         {{cityWeather?.weather?.temperature.toFixed(0)}}°C
       </h1>
@@ -36,8 +34,8 @@
         <img src="assets/imgs/{{w.weatherType}}.svg">
       </ion-thumbnail>
       <h2 text-capitalize>{{w.date | dfnsFormat : 'DD/MM/YYYY'}}</h2>
-      <p text-capitalize>{{w.weatherDescription}} - Humidité : {{w.humidity}} % - Vent :
-          {{w.windSpeed.toFixed(0)}} km/h</p>
+      <p text-capitalize>{{w.weatherDescription}}</p>
+      <p text-capitalize>Humidité : {{w.humidity}} % - Vent : {{w.windSpeed.toFixed(0)}} km/h</p>
       <h1 item-end>{{w.temperature.toFixed(0)}}°C</h1>
     </ion-item>
   </ion-list>
