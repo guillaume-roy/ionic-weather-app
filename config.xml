@@ -86,5 +86,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Afficher la météo de votre actuelle position" />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^2.5.0" />
-    <engine name="android" spec="~7.0.0" />
+    <engine name="android" spec="7.0.0" />
 </widget>

@@ -14,7 +14,11 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AddCityComponent } from '../components/add-city/add-city';
 import { IonicStorageModule } from '@ionic/Storage';
-import { DateFnsModule } from 'ngx-date-fns';
+import { DateFnsModule, DateFnsConfigurationService } from 'ngx-date-fns';
+import * as frLocale from "date-fns/locale/fr/index.js";
+
+const frenchConfig = new DateFnsConfigurationService();
+frenchConfig.setLocale(frLocale);
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { DateFnsModule } from 'ngx-date-fns';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CitiesProvider,
     WeatherProvider,
-    Geolocation
+    Geolocation,
+    { provide: DateFnsConfigurationService, useValue: frenchConfig }
   ]
 })
 export class AppModule { }
