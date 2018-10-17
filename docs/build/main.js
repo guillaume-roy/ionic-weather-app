@@ -38,7 +38,7 @@ var WeatherProvider = /** @class */ (function () {
         var _this = this;
         if (!cities || cities.length === 0)
             return Promise.resolve([]);
-        return this.http.get("http://api.openweathermap.org/data/2.5/group?id=" + cities.map(function (c) { return c.id; }).join(",") + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
+        return this.http.get("https://api.openweathermap.org/data/2.5/group?id=" + cities.map(function (c) { return c.id; }).join(",") + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
             .toPromise().then(function (res) {
             var weathers = [];
             if (res && res.list && res.list.length > 0) {
@@ -57,7 +57,7 @@ var WeatherProvider = /** @class */ (function () {
      */
     WeatherProvider.prototype.getWeatherFromCoord = function (longitude, latitude) {
         var _this = this;
-        return this.http.get("http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
+        return this.http.get("https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
             .toPromise().then(function (res) {
             return _this.convertWeather(res, true);
         });
@@ -68,7 +68,7 @@ var WeatherProvider = /** @class */ (function () {
      */
     WeatherProvider.prototype.getForecastWeather = function (city) {
         var _this = this;
-        return this.http.get("http://api.openweathermap.org/data/2.5/forecast?id=" + city.id + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
+        return this.http.get("https://api.openweathermap.org/data/2.5/forecast?id=" + city.id + "&appid=" + __WEBPACK_IMPORTED_MODULE_2__assets_config__["a" /* config */].openWeatherMapApiKey + "&units=metric&lang=fr")
             .toPromise().then(function (res) {
             var weathers = [];
             if (res && res.list && res.list.length > 0) {

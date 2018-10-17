@@ -25,7 +25,7 @@ export class WeatherProvider {
     if (!cities || cities.length === 0)
       return Promise.resolve([]);
 
-    return this.http.get(`http://api.openweathermap.org/data/2.5/group?id=${cities.map(c => c.id).join(",")}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
+    return this.http.get(`https://api.openweathermap.org/data/2.5/group?id=${cities.map(c => c.id).join(",")}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
       .toPromise().then((res: any) => {
         let weathers: ICityWeather[] = [];
         if (res && res.list && res.list.length > 0) {
@@ -44,7 +44,7 @@ export class WeatherProvider {
    * @param latitude
    */
   getWeatherFromCoord(longitude: number, latitude: number) {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
+    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
       .toPromise().then((res: any) => {
         return this.convertWeather(res, true);
       });
@@ -55,7 +55,7 @@ export class WeatherProvider {
    * @param city
    */
   getForecastWeather(city: ICity) {
-    return this.http.get(`http://api.openweathermap.org/data/2.5/forecast?id=${city.id}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
+    return this.http.get(`https://api.openweathermap.org/data/2.5/forecast?id=${city.id}&appid=${config.openWeatherMapApiKey}&units=metric&lang=fr`)
       .toPromise().then((res: any) => {
         let weathers: IWeatherValue[] = [];
         if (res && res.list && res.list.length > 0) {
