@@ -5,14 +5,40 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>city</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>{{cityWeather?.city?.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="deleteCity()" *ngIf="!cityWeather?.city?.isLocal">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-item text-center text-capitalize>
+      <h2>{{cityWeather?.city?.name}} - {{cityWeather?.city?.country}}</h2>
+      <p>{{cityWeather?.weather?.weatherDescription}} - Humidité : {{cityWeather?.weather?.humidity}} % - Vent :
+        {{cityWeather?.weather?.windSpeed.toFixed(0)}}
+        km/h</p>
+      <h1 item-end>
+        {{cityWeather?.weather?.temperature.toFixed(0)}}°C
+      </h1>
+    </ion-item>
+    <img class="weather-icon" text-center src="/assets/imgs/{{cityWeather?.weather?.weatherType}}.svg" />
+  </ion-card>
+  <ion-list>
+    <ion-item-divider color="light">A Venir</ion-item-divider>
+    <ion-item *ngFor="let w of forecastWeathers">
+      <ion-thumbnail item-start>
+        <img src="/assets/imgs/{{w.weatherType}}.svg">
+      </ion-thumbnail>
+      <h2 text-capitalize>{{w.date | dfnsFormat : 'DD/MM/YYYY'}}</h2>
+      <p text-capitalize>{{w.weatherDescription}} - Humidité : {{w.humidity}} % - Vent :
+          {{w.windSpeed.toFixed(0)}} km/h</p>
+      <h1 item-end>{{w.temperature.toFixed(0)}}°C</h1>
+    </ion-item>
+  </ion-list>
 </ion-content>

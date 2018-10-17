@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-searchbar #inputSearch placeholder="Rechercher une ville" (ionInput)="searchCities($event)"></ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="citiesResult.length > 0; else emptyBlock">
+    <button ion-item *ngFor="let city of citiesResult" (click)="selectCity(city)">
+      {{ city.name }} - {{ city.country }}
+    </button>
+  </ion-list>
+  <ng-template #emptyBlock>
+    <h5 text-center>
+      <i>Aucun résultat</i>
+    </h5>
+  </ng-template>
+</ion-content>

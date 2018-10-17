@@ -3,34 +3,48 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { CumulonimbusApp } from './app.component';
 import { CitiesProvider } from '../providers/cities/cities';
 import { WeatherProvider } from '../providers/weather/weather';
 import { CitiesPage } from '../pages/cities/cities';
 import { CityPage } from '../pages/city/city';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AddCityComponent } from '../components/add-city/add-city';
+import { IonicStorageModule } from '@ionic/Storage';
+import { DateFnsModule } from 'ngx-date-fns';
 
 @NgModule({
   declarations: [
     CumulonimbusApp,
     CitiesPage,
-    CityPage
+    CityPage,
+    AddCityComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(CumulonimbusApp)
+    IonicModule.forRoot(CumulonimbusApp),
+    HttpModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot(),
+    DateFnsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     CumulonimbusApp,
-    CitiesPage
+    CitiesPage,
+    AddCityComponent,
+    CityPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     CitiesProvider,
-    WeatherProvider
+    WeatherProvider,
+    Geolocation
   ]
 })
-export class AppModule {}
+export class AppModule { }
