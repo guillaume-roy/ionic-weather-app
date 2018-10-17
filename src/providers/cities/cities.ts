@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Storage } from '@ionic/Storage';
 import { ICity } from '../../models/city';
-import { config } from '../../assets/config';
+import { config } from '../../app/config';
 
 /*
   Generated class for the CitiesProvider provider.

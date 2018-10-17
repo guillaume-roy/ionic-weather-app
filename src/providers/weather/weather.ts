@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ICity } from '../../models/city';
 import { ICityWeather } from '../../models/city-weather';
 import { IWeatherValue } from '../../models/weather-value';
-import { config } from '../../assets/config';
+import { config } from '../../app/config';
 
 /*
   Generated class for the WeatherProvider provider.
