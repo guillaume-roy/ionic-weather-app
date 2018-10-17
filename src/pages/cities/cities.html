@@ -27,8 +27,19 @@
         <img src="assets/imgs/{{localWeather.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{localWeather.city.name}} - {{localWeather.city.country}}</h2>
-      <p text-capitalize>{{localWeather.weather.weatherDescription}}</p>
-      <p text-capitalize>Humidité : {{localWeather.weather.humidity}} % - Vent : {{localWeather.weather.windSpeed.toFixed(0)}} km/h</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start>
+            <h3 text-capitalize>{{localWeather.weather.weatherDescription}}</h3>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Humidité : {{localWeather.weather.humidity}} %</p>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Vent : {{localWeather.weather.windSpeed.toFixed(0)}} km/h</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <h1 item-end>{{localWeather.weather.temperature.toFixed(0)}}°C</h1>
     </button>
     <ion-item-divider color="light" *ngIf="weathers && weathers.length > 0">Favoris</ion-item-divider>
@@ -37,8 +48,19 @@
         <img src="assets/imgs/{{w.weather.weatherType}}.svg">
       </ion-thumbnail>
       <h2>{{w.city.name}} - {{w.city.country}}</h2>
-      <p text-capitalize>{{w.weather.weatherDescription}}</p>
-      <p text-capitalize>Humidité : {{w.weather.humidity}} % - Vent : {{w.weather.windSpeed.toFixed(0)}} km/h</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start>
+            <h3 text-capitalize>{{w.weather.weatherDescription}}</h3>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Humidité : {{w.weather.humidity}} %</p>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Vent : {{w.weather.windSpeed.toFixed(0)}} km/h</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <h1 item-end>{{w.weather.temperature.toFixed(0)}}°C</h1>
     </button>
   </ion-list>

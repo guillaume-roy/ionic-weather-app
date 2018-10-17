@@ -20,7 +20,16 @@
   <ion-card>
     <ion-item text-center text-capitalize>
       <h1>{{cityWeather?.weather?.weatherDescription}}</h1>
-      <p>Humidité : {{cityWeather?.weather?.humidity}} % - Vent : {{cityWeather?.weather?.windSpeed.toFixed(0)}} km/h</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start>
+            <p text-capitalize>Humidité : {{cityWeather?.weather?.humidity}} %</p>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Vent : {{cityWeather?.weather?.windSpeed.toFixed(0)}} km/h</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <h1 item-end>
         {{cityWeather?.weather?.temperature.toFixed(0)}}°C
       </h1>
@@ -33,9 +42,22 @@
       <ion-thumbnail item-start>
         <img src="assets/imgs/{{w.weatherType}}.svg">
       </ion-thumbnail>
-      <h2 text-capitalize>{{w.date | dfnsFormat : 'DD/MM/YYYY'}}</h2>
-      <p text-capitalize>{{w.weatherDescription}}</p>
-      <p text-capitalize>Humidité : {{w.humidity}} % - Vent : {{w.windSpeed.toFixed(0)}} km/h</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col align-self-start>
+            <h2 text-capitalize>{{w.date | dfnsFormat : 'DD/MM/YYYY'}}</h2>
+          </ion-col>
+          <ion-col align-self-start>
+            <h3 text-capitalize>{{w.weatherDescription}}</h3>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Humidité : {{w.humidity}} %</p>
+          </ion-col>
+          <ion-col align-self-start>
+            <p text-capitalize>Vent : {{w.windSpeed.toFixed(0)}} km/h</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       <h1 item-end>{{w.temperature.toFixed(0)}}°C</h1>
     </ion-item>
   </ion-list>
